@@ -5,7 +5,7 @@ Traditional budget apps want you to assign every dollar to a category... but wha
 ## [Try it!](https://mypocketmoney.netlify.app/)
 
 <p align="left" width="100%">
-<img src="https://user-images.githubusercontent.com/57073322/221385036-f4e3b0ee-8cd0-41b8-9c52-1d32371c103f.png" width=50% alt="Pocket Money Screenshot">
+<img src="https://user-images.githubusercontent.com/57073322/221385036-f4e3b0ee-8cd0-41b8-9c52-1d32371c103f.png" width=75% alt="Pocket Money Screenshot">
 </p>
 
 ## Features
