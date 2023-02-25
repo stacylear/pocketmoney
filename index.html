@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--Let browser know this website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pocket Money</title>
+     <!--Import Google Icon Font--> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Import FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Import style.css - Materialize - Compiled and Minified CSS-->
+     <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>      
+    </head>
+  <body>
+    
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col center">
+            <h1>Pocket Money</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <!-- Dashboard -->
+          <div class="col s12">
+            <div class="card">
+              <div class="card-content">
+                <!-- <h2>Dashboard</h2> -->
+                <table class="centered">
+                  <thead>
+                    <tr>
+                      <th>
+                        <i class="material-icons">attach_money</i>
+                        <i class="material-icons">arrow_downward</i>
+                        
+                      </th>
+                      <th>
+                        <i class="material-icons">attach_money</i>
+                        <i class="material-icons">arrow_upward</i>
+                      </th>
+                      <th>
+                        <i class="material-icons">beach_access</i>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span id="totalIncome"></span>
+                      </td>
+                      <td>
+                        <span id="totalExpense"></span>
+                      </td>
+                      <td>
+                        <span id="leftover"></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Income -->
+          <div class="col s12 l6">
+            <div class="card">
+              <div class="card-content">
+                <!-- Header and Add Button -->
+                <div class="row">
+                  <div class="col s12">
+                    <h2>
+                      Income
+                      <a class="btn-floating waves-effect waves-light green"
+                        ><i
+                          data-category="income"
+                          id="addIncomeBtn"
+                          class="material-icons small"
+                          >add</i
+                        >
+                      </a>
+                    </h2>
+                  </div>
+                </div>
+                <!-- List of Entries -->
+                <table class="centered highlight">
+                  <tbody data-category="income"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expense -->
+          <div class="col s12 l6">
+            <div class="card">
+              <div class="card-content">
+                <div class="row">
+                  <div class="col s12">
+                    <h2>
+                      Expense
+                      <a class="btn-floating waves-effect waves-light red"
+                        ><i
+                          data-category="expense"
+                          id="addExpenseBtn"
+                          class="material-icons small"
+                          >remove</i
+                        >
+                      </a>
+                    </h2>
+                  </div>
+                </div>
+                <!-- List of Entries -->
+                <table class="centered highlight">
+                  <tbody data-category="expense"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Add Entry Modal -->
+    <div id="addEntryModal" class="modal">
+      <div class="modal-content">
+        <h4>Add <span id="entryType"></span></h4>
+        <form>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="description" type="text" class="validate" required />
+              <label for="description">Description</label>
+              <span
+                class="helper-text"
+                data-error="This field is required"
+              ></span>
+            </div>
+            <div class="input-field col s12">
+              <input id="amount" type="number" class="validate" required />
+              <label for="amount">Amount</label>
+              <span
+                class="helper-text"
+                data-error="This field is required"
+              ></span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a id="addEntryBtn" class="waves-effect waves-green btn-flat">Add</a>
+      </div>
+    </div>
+
+    <!-- Edit / Delete Entry Modal -->
+    <div id="editDeleteEntryModal" class="modal">
+      <div class="modal-content">
+        <h4>Edit Entry</h4>
+        <form>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="editDescription"
+                type="text"
+                class="validate"
+                required
+              />
+              <label for="editDescription">Description</label>
+              <span
+                class="helper-text"
+                data-error="This field is required"
+              ></span>
+            </div>
+            <div class="input-field col s12">
+              <input id="editAmount" type="number" class="validate" required />
+              <label for="editAmount">Amount</label>
+              <span
+                class="helper-text"
+                data-error="This field is required"
+              ></span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer justify-content-between d-flex">
+        <a id="deleteEntryBtn" class="waves-effect waves-light btn-flat"
+          >Delete</a
+        ><a id="saveEntryBtn" class="waves-effect waves-green btn green">Save</a>
+      </div>
+    </div>
+
+<footer class="page-footer green" >
+      <div class="container">
+            <h6 class="white-text center">
+              <a href="https://github.com/stacylear"><i class="fa fa-github white-text"></i></a>
+              <a href="https://twitter.com/StacyLearSDE"><i class="fa fa-twitter white-text"></i></a>
+              <a href="https://www.linkedin.com/in/stacylear/"><i class="fa fa-linkedin white-text"></i></a>
+              <br>
+              <a href="https://www.stacylear.com" target="_blank" class="white-text">LEAR CREATIVE CONSULTING</a></p>
+            </h6>
+          </div>
+      <div class="footer-copyright center">
+      </div>
+    </footer>
+        
+
+
+    <!-- JavaScript at the end of the body for optimized loading -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
